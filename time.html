@@ -11,6 +11,44 @@
     </style>
   </head>
 <body>
-
+	<p id="day"></p>
+    <p id="time"></p>
+    <p id="date"></p>
+    <script>
+    	setInterval(function(){
+        //super variables and output variables
+        var d = new Date();
+        var dag = document.getElementById("day");
+        var tym = document.getElementById("time");
+        var datum = document.getElementById("date");
+     	
+        //if minutes / hours / seconds is less than 0 
+        //then add a 0 in front of the number 
+        function zA(num){
+        	if(num < 10){
+            	num = "0" + num;
+            }
+            return num;
+        }
+        
+        //setting up the variables for the time
+        var hour = zA(d.getHours());
+        var min = zA(d.getMinutes());
+        var sec = zA(d.getSeconds());
+        var time = hour+":"+min+":"+sec;
+        tym.innerText = time;
+        
+        //setting up the day function
+        var day = d.getDay();
+        dag.innerText = day;
+        
+        //setting up the date
+        var dT = d.getDate();
+        var mT = d.getMonth();
+        var yT = d.getFullYear();
+        var daT = dT+"/"+mT+"/"+yT;
+        datum.InnerText = daT;
+        },1000);
+    </script>
 </body>
 </html>
