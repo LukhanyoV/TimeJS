@@ -6,7 +6,9 @@ function currentTime() {
   hour = updateTime(hour);
   min = updateTime(min);
   sec = updateTime(sec);
-  document.getElementById("clock").innerText = hour + " : " + min + " : " + sec; //adding time to the div
+  var time = hour + " : " + min + " : " + sec;
+  document.getElementById("clock").innerText = time; //adding time to the div
+  document.title = time.replace(/\s/g, ''); // add time to the title
   var t = setTimeout(function(){ currentTime() }, 1000); //setting timer
 }
 
